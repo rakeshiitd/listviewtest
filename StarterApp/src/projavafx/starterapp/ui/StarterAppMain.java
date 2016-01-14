@@ -62,6 +62,10 @@ import javafx.scene.web.WebView;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.controlsfx.control.GridCell;
+import org.controlsfx.control.GridView;
+import org.controlsfx.control.cell.ColorGridCell;
+import projavafx.starterapp.model.ColorGridCell2;
 import projavafx.starterapp.model.Dog;
 import projavafx.starterapp.model.MoneyFormatCell;
 import projavafx.starterapp.model.Person;
@@ -268,12 +272,13 @@ public class StarterAppMain extends Application {
         treeView.setShowRoot(false);
         treeView.setEditable(false);
 
-        ListView listView = new ListView(model.listViewItems);
-        listView.setCellFactory(new Callback<ListView<Dog>, ListCell<Dog>>() {
-     @Override public ListCell<Dog> call(ListView<Dog> list) {
-         return new MoneyFormatCell();
+        GridView listView = new GridView(model.listViewItems);
+         listView.setCellFactory(new Callback<GridView<Dog>, GridCell<Dog>>() {
+     public GridCell<Dog> call(GridView<Dog> gridView) {
+         return new ColorGridCell2();
      }
  });
+        
 
         SplitPane splitPane = new SplitPane();
         splitPane.getItems().addAll(treeView, listView);
@@ -284,7 +289,7 @@ public class StarterAppMain extends Application {
                     TreeItem treeItem = (TreeItem) newValue;
                     if (newValue != null && treeItem.isLeaf()) {
                         model.listViewItems.clear();
-                        for (int i = 1; i <= 10000; i++) {
+                        for (int i = 1; i <= 1000; i++) {
                             model.listViewItems.add(new Dog(Integer.toString(i)));
                         }
                     }
