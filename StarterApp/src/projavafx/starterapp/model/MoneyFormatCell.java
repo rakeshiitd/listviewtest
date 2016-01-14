@@ -23,7 +23,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author 5110
  */
-public class MoneyFormatCell extends ListCell<String> {
+public class MoneyFormatCell extends ListCell<Dog> {
     public Rectangle rectangle;
         public Button changeFillButton;
         public Button changeStrokeButton;
@@ -32,12 +32,12 @@ public class MoneyFormatCell extends ListCell<String> {
      public MoneyFormatCell() {    }
        
     @Override
-    public void updateItem(String item, boolean empty) {
+    public void updateItem(Dog item, boolean empty) {
         super.updateItem(item, empty);
         setEditable(false);
         if (item != null) {
-            Label name = new Label(item.toString());                           
-            Button actionBtn = new Button(item.toString());            
+            Label name = new Label(item.name);                           
+            Button actionBtn = new Button(item.name);            
             actionBtn.setOnAction(new EventHandler<ActionEvent>() {
 
                 @Override

@@ -62,6 +62,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import projavafx.starterapp.model.Dog;
 import projavafx.starterapp.model.MoneyFormatCell;
 import projavafx.starterapp.model.Person;
 import projavafx.starterapp.model.StarterAppModel;
@@ -268,8 +269,8 @@ public class StarterAppMain extends Application {
         treeView.setEditable(false);
 
         ListView listView = new ListView(model.listViewItems);
-        listView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
-     @Override public ListCell<String> call(ListView<String> list) {
+        listView.setCellFactory(new Callback<ListView<Dog>, ListCell<Dog>>() {
+     @Override public ListCell<Dog> call(ListView<Dog> list) {
          return new MoneyFormatCell();
      }
  });
@@ -284,7 +285,7 @@ public class StarterAppMain extends Application {
                     if (newValue != null && treeItem.isLeaf()) {
                         model.listViewItems.clear();
                         for (int i = 1; i <= 10000; i++) {
-                            model.listViewItems.add(Integer.toString(i));
+                            model.listViewItems.add(new Dog(Integer.toString(i)));
                         }
                     }
                 });
