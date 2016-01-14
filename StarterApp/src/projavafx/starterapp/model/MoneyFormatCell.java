@@ -23,7 +23,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author 5110
  */
-public class MoneyFormatCell extends ListCell<Number> {
+public class MoneyFormatCell extends ListCell<String> {
     public Rectangle rectangle;
         public Button changeFillButton;
         public Button changeStrokeButton;
@@ -32,7 +32,7 @@ public class MoneyFormatCell extends ListCell<Number> {
      public MoneyFormatCell() {    }
        
     @Override
-    public void updateItem(Number item, boolean empty) {
+    public void updateItem(String item, boolean empty) {
         super.updateItem(item, empty);
         setEditable(false);
         if (item != null) {

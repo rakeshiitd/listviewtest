@@ -268,8 +268,8 @@ public class StarterAppMain extends Application {
         treeView.setEditable(false);
 
         ListView listView = new ListView(model.listViewItems);
-        listView.setCellFactory(new Callback<ListView<Number>, ListCell<Number>>() {
-     @Override public ListCell<Number> call(ListView<Number> list) {
+        listView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+     @Override public ListCell<String> call(ListView<String> list) {
          return new MoneyFormatCell();
      }
  });
@@ -284,7 +284,7 @@ public class StarterAppMain extends Application {
                     if (newValue != null && treeItem.isLeaf()) {
                         model.listViewItems.clear();
                         for (int i = 1; i <= 10000; i++) {
-                            model.listViewItems.add(i);
+                            model.listViewItems.add(Integer.toString(i));
                         }
                     }
                 });
